@@ -1,0 +1,19 @@
+% Assembly pitch with no water gap is 21.41728 cm
+lat 999 1 0.0 0.0 17 17 21.50364
+  VD  VD  VD  VD  RF  RF  RF  RF  RF  RF  RF  RF  RF  VD  VD  VD  VD
+  VD  VD  RF  RF  RF   3   3   3   1   3   3   2  RF  RF  RF  VD  VD
+  VD  RF  RF   3   7  22  17  23  16  23  17  22   2   3  RF  RF  VD
+  VD  RF   3  21  19  15   9  15   4  15   9  15  19  21   3  RF  VD
+  RF  RF   2  19  10   6  18  13   4  12  18   7  10  19   7  RF  RF
+  RF   2  22  15   7  14   5  20  11  20   5  14   6  15  22   3  RF
+  RF   3  17   9  18   5  15   8  15   8  15   5  18   9  17   3  RF
+  RF   3  23  15  12  20   8  20  11  20   8  20  13  15  23   3  RF
+  RF   1  16   4   4  11  15  11  24  11  15  11   4   4  16   1  RF
+  RF   3  23  15  13  20   8  20  11  20   8  20  12  15  23   3  RF
+  RF   3  17   9  18   5  15   8  15   8  15   5  18   9  17   3  RF
+  RF   3  22  15   6  14   5  20  11  20   5  14   7  15  22   2  RF
+  RF  RF   7  19  10   7  18  12   4  13  18   6  10  19   2  RF  RF
+  VD  RF   3  21  19  15   9  15   4  15   9  15  19  21   3  RF  VD
+  VD  RF  RF   3   2  22  17  23  16  23  17  22   7   3  RF  RF  VD
+  VD  VD  RF  RF  RF   2   3   3   1   3   3   3  RF  RF  RF  VD  VD
+  VD  VD  VD  VD  RF  RF  RF  RF  RF  RF  RF  RF  RF  VD  VD  VD  VD

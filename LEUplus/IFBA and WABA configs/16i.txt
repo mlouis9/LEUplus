@@ -1,0 +1,21 @@
+% --- 16 IFBA ---
+
+lat 2 1 0.0 0.0 17 17 1.25984
+
+f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f 
+f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f 
+f  f  f  f  f  gt i  f  gt f  i  gt f  f  f  f  f 
+f  f  f  gt f  f  f  f  f  f  f  f  f  gt f  f  f 
+f  f  f  f  i  f  f  f  f  f  f  f  i  f  f  f  f 
+f  f  gt f  f  gt f  f  gt f  f  gt f  f  gt f  f 
+f  f  i  f  f  f  f  f  f  f  f  f  f  f  i  f  f 
+f  f  f  f  f  f  f  i  f  i  f  f  f  f  f  f  f 
+f  f  gt f  f  gt f  f  in f  f  gt f  f  gt f  f 
+f  f  f  f  f  f  f  i  f  i  f  f  f  f  f  f  f 
+f  f  i  f  f  f  f  f  f  f  f  f  f  f  i  f  f 
+f  f  gt f  f  gt f  f  gt f  f  gt f  f  gt f  f 
+f  f  f  f  i  f  f  f  f  f  f  f  i  f  f  f  f 
+f  f  f  gt f  f  f  f  f  f  f  f  f  gt f  f  f 
+f  f  f  f  f  gt i  f  gt f  i  gt f  f  f  f  f 
+f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f 
+f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f 

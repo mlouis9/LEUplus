@@ -1,0 +1,23 @@
+% --- 104 IFBA ---
+
+% --- 2D geometry setup ---
+
+lat 1 1 0.0 0.0 17 17 1.25984
+
+i  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  i
+f  f  f  f  f  i  f  f  i  f  f  i  f  f  f  f  f
+f  f  f  i  i  gt i  i  gt i  i  gt i  i  f  f  f
+f  f  i  gt i  i  f  f  i  f  f  i  i  gt i  f  f
+f  i  i  i  f  i  f  f  i  f  f  i  f  i  i  i  f
+f  f  gt i  i  gt i  i  gt i  i  gt i  i  gt f  f
+f  f  i  f  f  i  f  f  i  f  f  i  f  f  i  f  f
+f  f  i  f  f  i  f  f  i  f  f  i  f  f  i  f  f
+f  i  gt i  i  gt i  i  in i  i  gt i  i  gt i  f
+f  f  i  f  f  i  f  f  i  f  f  i  f  f  i  f  f
+f  f  i  f  f  i  f  f  i  f  f  i  f  f  i  f  f
+f  f  gt i  i  gt i  i  gt i  i  gt i  i  gt f  f
+f  i  i  i  f  i  f  f  i  f  f  i  f  i  i  i  f
+f  f  i  gt i  i  f  f  i  f  f  i  i  gt i  f  f 
+f  f  f  i  i  gt i  i  gt i  i  gt i  i  f  f  f
+f  f  f  f  f  i  f  f  i  f  f  i  f  f  f  f  f
+i  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  i
