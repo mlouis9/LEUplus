@@ -1,0 +1,339 @@
+# Identifiers for pin types
+identifiers:
+  ifba:
+    symbol: 'i'
+    name: 'ifba'
+  waba:
+    symbol: 'wb'
+    name: 'waba'
+
+# Data for fuel enrichments to be considered (all given in weight fraction)
+# enrichments = linspace(start, stop, number)
+enrichments:
+  start: 0.03
+  stop: 0.07
+  number: 12
+
+# Assembly patterns
+# Note we need a 'zero' assembly for IFBA and WABA
+assemblies:
+  - type: 'ifba'
+    number: 0
+    assembly_pattern: |
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  gt f  f  gt f  f  gt f  f  f  f  f
+      f  f  f  gt f  f  f  f  f  f  f  f  f  gt f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  gt f  f  gt f  f  gt f  f  gt f  f  gt f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  gt f  f  gt f  f  in f  f  gt f  f  gt f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  gt f  f  gt f  f  gt f  f  gt f  f  gt f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  gt f  f  f  f  f  f  f  f  f  gt f  f  f
+      f  f  f  f  f  gt f  f  gt f  f  gt f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+  - type: 'waba'
+    number: 0
+    assembly_pattern: |
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  gt f  f  gt f  f  gt f  f  f  f  f
+      f  f  f  gt f  f  f  f  f  f  f  f  f  gt f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  gt f  f  gt f  f  gt f  f  gt f  f  gt f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  gt f  f  gt f  f  in f  f  gt f  f  gt f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  gt f  f  gt f  f  gt f  f  gt f  f  gt f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  gt f  f  f  f  f  f  f  f  f  gt f  f  f
+      f  f  f  f  f  gt f  f  gt f  f  gt f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+  - type: 'waba'
+    number: 4
+    assembly_pattern: |
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  gt f  f  gt f  f  gt f  f  f  f  f
+      f  f  f  wb f  f  f  f  f  f  f  f  f  wb f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  gt f  f  gt f  f  gt f  f  gt f  f  gt f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  gt f  f  gt f  f  in f  f  gt f  f  gt f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  gt f  f  gt f  f  gt f  f  gt f  f  gt f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  wb f  f  f  f  f  f  f  f  f  wb f  f  f
+      f  f  f  f  f  gt f  f  gt f  f  gt f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+  - type: 'ifba'
+    number: 156
+    assembly_pattern: |
+      i  f  i  f  i  f  i  i  f  i  i  f  i  f  i  f  i
+      f  f  f  f  f  i  f  f  i  f  f  i  f  f  f  f  f
+      i  f  i  i  i  gt i  i  gt i  i  gt i  i  i  f  i
+      f  f  i  gt i  i  f  f  i  f  f  i  i  gt i  f  f
+      i  f  i  i  i  i  f  i  i  i  f  i  i  i  i  f  i
+      f  i  gt i  i  gt i  i  gt i  i  gt i  i  gt i  f
+      i  f  i  f  f  i  f  f  i  f  f  i  f  f  i  f  i
+      i  f  i  f  i  i  f  i  i  i  f  i  i  f  i  f  i
+      f  i  gt i  i  gt i  i  in i  i  gt i  i  gt i  f
+      i  f  i  f  i  i  f  i  i  i  f  i  i  f  i  f  i
+      i  f  i  f  f  i  f  f  i  f  f  i  f  f  i  f  i
+      f  i  gt i  i  gt i  i  gt i  i  gt i  i  gt i  f
+      i  f  i  i  i  i  f  i  i  i  f  i  i  i  i  f  i
+      f  f  i  gt i  i  f  f  i  f  f  i  i  gt i  f  f
+      i  f  i  i  i  gt i  i  gt i  i  gt i  i  i  f  i
+      f  f  f  f  f  i  f  f  i  f  f  i  f  f  f  f  f
+      i  f  i  f  i  f  i  i  f  i  i  f  i  f  i  f  i
+  - type: 'ifba'
+    number: 128
+    assembly_pattern: |
+      i  f  f  f  i  f  f  i  f  i  f  f  i  f  f  f  i
+      f  f  i  f  f  i  f  f  i  f  f  i  f  f  i  f  f
+      f  i  f  i  i  gt i  i  gt i  i  gt i  i  f  i  f
+      f  f  i  gt i  i  f  f  i  f  f  i  i  gt i  f  f
+      i  f  i  i  f  i  f  f  i  f  f  i  f  i  i  f  i
+      f  i  gt i  i  gt i  i  gt i  i  gt i  i  gt i  f
+      f  f  i  f  f  i  f  f  i  f  f  i  f  f  i  f  f
+      i  f  i  f  f  i  f  f  i  f  f  i  f  f  i  f  i
+      f  i  gt i  i  gt i  i  in i  i  gt i  i  gt i  f
+      i  f  i  f  f  i  f  f  i  f  f  i  f  f  i  f  i
+      f  f  i  f  f  i  f  f  i  f  f  i  f  f  i  f  f
+      f  i  gt i  i  gt i  i  gt i  i  gt i  i  gt i  f
+      i  f  i  i  f  i  f  f  i  f  f  i  f  i  i  f  i
+      f  f  i  gt i  i  f  f  i  f  f  i  i  gt i  f  f
+      f  i  f  i  i  gt i  i  gt i  i  gt i  i  f  i  f
+      f  f  i  f  f  i  f  f  i  f  f  i  f  f  i  f  f
+      i  f  f  f  i  f  f  i  f  i  f  f  i  f  f  f  i
+  - type: 'ifba'
+    number: 104
+    assembly_pattern: |
+      i  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  i
+      f  f  f  f  f  i  f  f  i  f  f  i  f  f  f  f  f
+      f  f  f  i  i  gt i  i  gt i  i  gt i  i  f  f  f
+      f  f  i  gt i  i  f  f  i  f  f  i  i  gt i  f  f
+      f  i  i  i  f  i  f  f  i  f  f  i  f  i  i  i  f
+      f  f  gt i  i  gt i  i  gt i  i  gt i  i  gt f  f
+      f  f  i  f  f  i  f  f  i  f  f  i  f  f  i  f  f
+      f  f  i  f  f  i  f  f  i  f  f  i  f  f  i  f  f
+      f  i  gt i  i  gt i  i  in i  i  gt i  i  gt i  f
+      f  f  i  f  f  i  f  f  i  f  f  i  f  f  i  f  f
+      f  f  i  f  f  i  f  f  i  f  f  i  f  f  i  f  f
+      f  f  gt i  i  gt i  i  gt i  i  gt i  i  gt f  f
+      f  i  i  i  f  i  f  f  i  f  f  i  f  i  i  i  f
+      f  f  i  gt i  i  f  f  i  f  f  i  i  gt i  f  f
+      f  f  f  i  i  gt i  i  gt i  i  gt i  i  f  f  f
+      f  f  f  f  f  i  f  f  i  f  f  i  f  f  f  f  f
+      i  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  i
+  - type: 'ifba'
+    number: 80
+    assembly_pattern: |
+      i  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  i
+      f  f  f  f  f  i  f  f  i  f  f  i  f  f  f  f  f
+      f  f  i  f  i  gt f  i  gt i  f  gt i  f  i  f  f
+      f  f  f  gt i  i  f  f  f  f  f  i  i  gt f  f  f
+      f  f  i  i  f  i  f  f  i  f  f  i  f  i  i  f  f
+      f  i  gt i  i  gt f  i  gt i  f  gt i  i  gt i  f
+      f  f  f  f  f  f  i  f  f  f  i  f  f  f  f  f  f
+      f  f  i  f  f  i  f  f  i  f  f  i  f  f  i  f  f
+      f  i  gt f  i  gt f  i  in i  f  gt i  f  gt i  f
+      f  f  i  f  f  i  f  f  i  f  f  i  f  f  i  f  f
+      f  f  f  f  f  f  i  f  f  f  i  f  f  f  f  f  f
+      f  i  gt i  i  gt f  i  gt i  f  gt i  i  gt i  f
+      f  f  i  i  f  i  f  f  i  f  f  i  f  i  i  f  f
+      f  f  f  gt i  i  f  f  f  f  f  i  i  gt f  f  f
+      f  f  i  f  i  gt f  i  gt i  f  gt i  f  i  f  f
+      f  f  f  f  f  i  f  f  i  f  f  i  f  f  f  f  f
+      i  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  i
+  - type: 'ifba'
+    number: 64
+    assembly_pattern: |
+      i  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  i
+      f  f  f  f  f  i  f  f  i  f  f  i  f  f  f  f  f
+      f  f  f  f  i  gt f  i  gt i  f  gt i  f  f  f  f
+      f  f  f  gt i  f  f  f  f  f  f  f  i  gt f  f  f
+      f  f  i  i  f  i  f  f  i  f  f  i  f  i  i  f  f
+      f  i  gt f  i  gt f  i  gt i  f  gt i  f  gt i  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  i  f  f  i  f  f  i  f  f  i  f  f  i  f  f
+      f  i  gt f  i  gt f  i  in i  f  gt i  f  gt i  f
+      f  f  i  f  f  i  f  f  i  f  f  i  f  f  i  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  i  gt f  i  gt f  i  gt i  f  gt i  f  gt i  f
+      f  f  i  i  f  i  f  f  i  f  f  i  f  i  i  f  f
+      f  f  f  gt i  f  f  f  f  f  f  f  i  gt f  f  f
+      f  f  f  f  i  gt f  i  gt i  f  gt i  f  f  f  f
+      f  f  f  f  f  i  f  f  i  f  f  i  f  f  f  f  f
+      i  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  i
+  - type: 'ifba'
+    number: 48
+    assembly_pattern: |
+      i  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  i
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  i  gt f  i  gt i  f  gt i  f  f  f  f
+      f  f  f  gt i  f  f  f  f  f  f  f  i  gt f  f  f
+      f  f  i  i  f  i  f  f  f  f  f  i  f  i  i  f  f
+      f  f  gt f  i  gt f  i  gt i  f  gt i  f  gt f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  i  f  f  i  f  f  i  f  f  i  f  f  i  f  f
+      f  f  gt f  f  gt f  i  in i  f  gt f  f  gt f  f
+      f  f  i  f  f  i  f  f  i  f  f  i  f  f  i  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  gt f  i  gt f  i  gt i  f  gt i  f  gt f  f
+      f  f  i  i  f  i  f  f  f  f  f  i  f  i  i  f  f
+      f  f  f  gt i  f  f  f  f  f  f  f  i  gt f  f  f
+      f  f  f  f  i  gt f  i  gt i  f  gt i  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      i  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  i
+  - type: 'ifba'
+    number: 32
+    assembly_pattern: |
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  i  f  f  f  f  f  i  f  f  f  f  f
+      f  f  f  f  i  gt f  f  gt f  f  gt i  f  f  f  f
+      f  f  f  gt f  f  f  f  i  f  f  f  f  gt f  f  f
+      f  f  f  i  f  f  f  f  f  f  f  f  f  i  f  f  f
+      f  i  gt f  f  gt i  f  gt f  i  gt f  f  gt i  f
+      f  f  f  f  f  i  f  f  i  f  f  i  f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  gt i  f  gt i  f  in f  i  gt f  i  gt f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  i  f  f  i  f  f  i  f  f  f  f  f
+      f  i  gt f  f  gt i  f  gt f  i  gt f  f  gt i  f
+      f  f  f  i  f  f  f  f  f  f  f  f  f  i  f  f  f
+      f  f  f  gt i  f  f  f  i  f  f  f  i  gt f  f  f
+      f  f  f  f  f  gt f  f  gt f  f  gt f  f  f  f  f
+      f  f  f  f  f  i  f  f  f  f  f  i  f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+  - type: 'waba'
+    number: 24
+    assembly_pattern: |
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  wb f  f  wb f  f  wb f  f  f  f  f
+      f  f  f  wb f  f  f  f  f  f  f  f  f  wb f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  wb f  f  wb f  f  wb f  f  wb f  f  wb f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  wb f  f  wb f  f  in f  f  wb f  f  wb f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  wb f  f  wb f  f  wb f  f  wb f  f  wb f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  wb f  f  f  f  f  f  f  f  f  wb f  f  f
+      f  f  f  f  f  wb f  f  wb f  f  wb f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+  - type: 'waba'
+    number: 20
+    assembly_pattern: |
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  wb f  f  wb f  f  wb f  f  f  f  f
+      f  f  f  wb f  f  f  f  f  f  f  f  f  wb f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  wb f  f  gt f  f  wb f  f  gt f  f  wb f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  wb f  f  wb f  f  in f  f  wb f  f  wb f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  wb f  f  gt f  f  wb f  f  gt f  f  wb f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  wb f  f  f  f  f  f  f  f  f  wb f  f  f
+      f  f  f  f  f  wb f  f  wb f  f  wb f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+  - type: 'waba'
+    number: 16
+    assembly_pattern: |
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  wb f  f  gt f  f  wb f  f  f  f  f
+      f  f  f  wb f  f  f  f  f  f  f  f  f  wb f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  wb f  f  gt f  f  wb f  f  gt f  f  wb f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  gt f  f  wb f  f  in f  f  wb f  f  gt f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  wb f  f  gt f  f  wb f  f  gt f  f  wb f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  wb f  f  f  f  f  f  f  f  f  wb f  f  f
+      f  f  f  f  f  wb f  f  gt f  f  wb f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+  - type: 'ifba'
+    number: 16
+    assembly_pattern: |
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  gt i  f  gt f  i  gt f  f  f  f  f
+      f  f  f  gt f  f  f  f  f  f  f  f  f  gt f  f  f
+      f  f  f  f  i  f  f  f  f  f  f  f  i  f  f  f  f
+      f  f  gt f  f  gt f  f  gt f  f  gt f  f  gt f  f
+      f  f  i  f  f  f  f  f  f  f  f  f  f  f  i  f  f
+      f  f  f  f  f  f  f  i  f  i  f  f  f  f  f  f  f
+      f  f  gt f  f  gt f  f  in f  f  gt f  f  gt f  f
+      f  f  f  f  f  f  f  i  f  i  f  f  f  f  f  f  f
+      f  f  i  f  f  f  f  f  f  f  f  f  f  f  i  f  f
+      f  f  gt f  f  gt f  f  gt f  f  gt f  f  gt f  f
+      f  f  f  f  i  f  f  f  f  f  f  f  i  f  f  f  f
+      f  f  f  gt f  f  f  f  f  f  f  f  f  gt f  f  f
+      f  f  f  f  f  gt i  f  gt f  i  gt f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+  - type: 'waba'
+    number: 12
+    assembly_pattern: |
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  wb f  f  gt f  f  wb f  f  f  f  f
+      f  f  f  gt f  f  f  f  f  f  f  f  f  gt f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  wb f  f  gt f  f  wb f  f  gt f  f  wb f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  gt f  f  wb f  f  in f  f  wb f  f  gt f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  wb f  f  gt f  f  wb f  f  gt f  f  wb f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  gt f  f  f  f  f  f  f  f  f  gt f  f  f
+      f  f  f  f  f  wb f  f  gt f  f  wb f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+  - type: 'waba'
+    number: 8
+    assembly_pattern: |
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  gt f  f  gt f  f  gt f  f  f  f  f
+      f  f  f  wb f  f  f  f  f  f  f  f  f  wb f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  gt f  f  gt f  f  wb f  f  gt f  f  gt f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  gt f  f  wb f  f  in f  f  wb f  f  gt f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  gt f  f  gt f  f  wb f  f  gt f  f  gt f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  wb f  f  f  f  f  f  f  f  f  wb f  f  f
+      f  f  f  f  f  gt f  f  gt f  f  gt f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f
+      f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f 

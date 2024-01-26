@@ -249,3 +249,30 @@ dep butot
 % ------------------------------------------------
 
 
+% 6.273w/o Enriched Fuel
+mat fuel -1.04120000E+01 burn 1
+U-235.09c   2.11595960E-02
+U-238.09c   3.12173737E-01
+ O-16.09c   0.66666667E+00
+
+ % Assembly Loading Pattern
+lat 1 1 0.0 0.0 17 17 1.25984
+f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f 
+f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f 
+f  f  f  f  f  gt f  f  gt f  f  gt f  f  f  f  f 
+f  f  f  gt f  f  f  f  f  f  f  f  f  gt f  f  f 
+f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f 
+f  f  gt f  f  gt f  f  gt f  f  gt f  f  gt f  f 
+f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f 
+f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f 
+f  f  gt f  f  gt f  f  in f  f  gt f  f  gt f  f 
+f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f 
+f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f 
+f  f  gt f  f  gt f  f  gt f  f  gt f  f  gt f  f 
+f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f 
+f  f  f  gt f  f  f  f  f  f  f  f  f  gt f  f  f 
+f  f  f  f  f  gt f  f  gt f  f  gt f  f  f  f  f 
+f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f 
+f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f 
+
+set title "2D 17x17 PWR Assembly XS gen. 0 waba, 0 ifba, 6.273 w/o enrichment "
