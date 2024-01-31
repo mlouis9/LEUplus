@@ -2,9 +2,10 @@
 # Utility script for generating input files for
 # 2D fuel assembly XS generation for varying
 # enrichments and BP loadings (IFBA and WABA)
+# and creating scripts for running the inputs on
+# the GT PACE cluster
 #
 # Written by: Matthew Louis
-#             1/25/2024
 #
 # ***********************************************
 
@@ -13,6 +14,8 @@ import yaml
 import numpy as np
 from itertools import product, combinations
 import copy
+from string import Template
+import math
 
 # Template file to append material and lattice definitions to
 serpentTemplate = '../templateFile/serpentTemplateFA.txt'
@@ -213,3 +216,93 @@ for assembly in all_assembly_combinations:
 
             # Set case title
             f.write(f"\nset title \"2D 17x17 PWR Assembly XS gen. {number_waba} waba, {number_ifba} ifba, {enrichment*100:.3f} w/o enrichment \"\n")
+
+# ------------------------------
+# Now write a mpi4py run script
+# ------------------------------            
+
+# Define parameters for running serpent cases on PACE
+coresPerAssy = 4
+numberOfAssyRuns = len(all_assembly_combinations)*len(enrichments)
+coresPerNode = 24
+tasksPerNode = math.floor(coresPerNode/coresPerAssy)
+numberOfNodes = math.ceil(numberOfAssyRuns/tasksPerNode)
+numberOfCores = numberOfAssyRuns*coresPerAssy
+
+# This is a template for creating an MPI python script that runs all of the generated input files
+runScriptTemplate = Template("""#-------------------------------
+# Script for running generated
+# input files on PACE
+#-------------------------------
+
+from mpi4py import MPI
+import subprocess
+import numpy as np
+                             
+# Get enrichments and assemblies for accessing 
+enrichments = np.array($enrichments)
+assemblies = $assemblies
+numberOfAssyRuns = len(assemblies)*len(enrichments)
+
+# Make an array of enrichment/assembly pairs so that each MPI rank may be assigned a unique run
+assembliesIndices = [(i, j) for i in range(len(assemblies)) for j in range(len(enrichments))]
+
+comm = MPI.COMM_WORLD
+
+# Get parameters of assembly
+assemblyIndices = assembliesIndices[comm.rank]
+assembly = assemblies[assemblyIndices[0]]
+enrichment = enrichments[assemblyIndices[1]]
+number_waba = assembly['number_waba']
+number_ifba = assembly['number_ifba']
+                             
+fileNamingTemplate = \"assyw{}i{}e{:.3f}\"
+
+# Format Serpent run command and run the case
+serpentCommand = f\"sss2 {fileNamingTemplate.format(number_waba, number_ifba, enrichment*100).replace('.', '-')}\" + \" -omp $coresPerAssy\"
+subprocess.run(serpentCommand, shell=True)
+""")
+
+
+# Force numpy array to print on single line
+np.set_printoptions(linewidth=np.inf)
+
+# Now pop off the assembly_pattern element of each dictionary because it is no longer needed
+for assembly in all_assembly_combinations:
+    assembly.pop('assembly_pattern')
+
+# Now format template and write run script
+runScriptName = 'run.py'
+with open(f'{outputDir}/{runScriptName}', 'w') as f:
+    f.write(runScriptTemplate.substitute(enrichments = np.array2string(enrichments, separator=','),
+                                         assemblies = all_assembly_combinations,
+                                         coresPerAssy = coresPerAssy))
+
+
+# This is a slurm submission script template for running the cases using the above run script
+# Note must fill in charge code by hand
+slurmSubmissionTemplate = Template("""#!/bin/bash
+
+#SBATCH -J serpentXSGen                         # Job name
+#SBATCH -A $chargeCode                          # account to which job is charged, ex: GT-gburdell3
+#SBATCH -N$numNodes --ntasks-per-node=$tasksPerNode                 # Number of nodes and cores per node
+#SBATCH --cpus-per-task=$cpusPerTask
+#SBATCH --time=7:30:00                          # Walltime = 7.5h
+#SBATCH -qembers                                # QOS Name (embers / inferno)
+#SBATCH -oReport-%j.out                         # Combined output and error messages file
+
+echo $$SLURM_SUBMIT_DIR
+cd   $$SLURM_SUBMIT_DIR                            # change into directory from where job to be executed (where data is / script is located)
+echo "Started on `/bin/hostname`"               # prints the name of the node job started on
+srun -c $cpusPerTask python $runScriptName
+""")
+
+# Now write the slurm submission script
+submissionScriptName = 'run.slurm'
+chargeCode = 'fillInYourChargeCode'
+with open(f'{outputDir}/{submissionScriptName}', 'w') as f:
+    f.write(slurmSubmissionTemplate.substitute(numNodes = numberOfNodes,
+                                               tasksPerNode = tasksPerNode,
+                                               cpusPerTask = coresPerAssy,
+                                               runScriptName = runScriptName,
+                                               chargeCode = chargeCode))
