@@ -293,8 +293,10 @@ slurmSubmissionTemplate = Template("""#!/bin/bash
 
 echo $$SLURM_SUBMIT_DIR
 cd   $$SLURM_SUBMIT_DIR                            # change into directory from where job to be executed (where data is / script is located)
+
+source ~/.bashrc                                # load environment
 echo "Started on `/bin/hostname`"               # prints the name of the node job started on
-mpirun -n $totNumTasks -hosts $$SLURM_JOB_NODELIST python $runScriptName
+srun python $runScriptName
 """)
 
 # Now write the slurm submission script

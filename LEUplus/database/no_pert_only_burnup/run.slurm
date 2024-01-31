@@ -10,5 +10,7 @@
 
 echo $SLURM_SUBMIT_DIR
 cd   $SLURM_SUBMIT_DIR                            # change into directory from where job to be executed (where data is / script is located)
+
+source ~/.bashrc                                # load environment
 echo "Started on `/bin/hostname`"               # prints the name of the node job started on
-mpirun -n 756 -hosts $SLURM_JOB_NODELIST python run.py
+srun python run.py

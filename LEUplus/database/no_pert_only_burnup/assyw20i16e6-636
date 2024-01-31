@@ -115,17 +115,11 @@ mat clad -6.55
 
 % WABA coating
 
-mat Al2O3 -3.95
-Al-27.06c 0.4
- O-16.06c 0.6
-
-mat B4C -2.52
-C-12.06c 7.10787570E-04
-B-10.06c 2.84315028E-03
-
-mix Al2O3B4C burn 1
-Al2O3 -0.86
-  B4C -0.14
+mat Al2O3B4C  1.22581E-01 burn 1
+ 13027.06c  3.71784E-02
+  8016.06c  5.57677E-02
+  6012.06c  5.92698E-03
+  5010.06c  2.37079E-02
 
 % IFBA coating (with nat. Zr)
 
