@@ -294,7 +294,7 @@ slurmSubmissionTemplate = Template("""#!/bin/bash
 echo $$SLURM_SUBMIT_DIR
 cd   $$SLURM_SUBMIT_DIR                            # change into directory from where job to be executed (where data is / script is located)
 echo "Started on `/bin/hostname`"               # prints the name of the node job started on
-srun -c $cpusPerTask python $runScriptName
+mpirun -n $totNumTasks -hosts $$SLURM_JOB_NODELIST python $runScriptName
 """)
 
 # Now write the slurm submission script
@@ -305,4 +305,5 @@ with open(f'{outputDir}/{submissionScriptName}', 'w') as f:
                                                tasksPerNode = tasksPerNode,
                                                cpusPerTask = coresPerAssy,
                                                runScriptName = runScriptName,
+                                               totNumTasks = numberOfAssyRuns,
                                                chargeCode = chargeCode))
