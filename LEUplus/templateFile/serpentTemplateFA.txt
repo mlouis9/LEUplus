@@ -2,16 +2,17 @@
 % TITLE OF THE CASE IS IN THE BOTTOM OF THE FILE
 % -----------------------------------------------
 
+set root $root_universe_name       % Allows root universe name to be templated to allow for easier postprocessing
+
 % --- Assembly unit cell:
-surf  41  sqc    0.0  0.0  10.70864  0            % Defenition of Assembly
-surf  42  sqc    0.0  0.0  10.75000  0            % Defenition of Assembly + water
+surf  41  sqc    0.0  0.0  10.70864            % Defenition of Assembly
+surf  42  sqc    0.0  0.0  10.75000            % Defenition of Assembly + water
 
 
 %--- Assembly Cell Definition
-cell 401  0  fill 1          -41
-cell  96  0  water        41 -42                                                                                 
-cell  97  0  outside          42                   % Outside world
-
+cell 401  $root_universe_name  fill 1          -41
+cell  96  $root_universe_name  water        41 -42                                                                                 
+cell  97  $root_universe_name  outside          42                   % Outside world
 
 %-----------------------------------------------------------
 %   Cross section library file path
@@ -28,7 +29,7 @@ set bc 2
 set opti 4
 %div fuel sep 1
 set pop 40000 120 20
-set printm 1
+% set printm 1 Causing excessive output, also, what do we use these for?
 
 set egrid 5e-5 1e-9 15.0
 
@@ -76,11 +77,20 @@ mat ss304 -8.03
 28062.06c 2.99460E-04
 28064.06c 7.62520E-05
 
-mat water -0.701468  moder  lwtr  1001 
-5010.06c -2.690926e-04
-5011.06c -0.0011909074
-1001.06c -0.1117349725
-8016.06c -0.8868050275
+% --- Natural Boron:
+mat boron  1.00000
+ 5010.06c  0.19900
+ 5011.06c  0.80100
+
+% --- nominal density water:		P=16MPa, T=580K
+mat water -0.7123  moder  lwtr  1001 
+1001.06c  0.66667
+8016.06c  0.33333
+
+% --- Coolant with 750 ppm boron:
+mix cool_750B
+water     0.99925
+boron     750E-6
 
 mat clad -6.55 
 24050.06c 3.29620E-06
@@ -139,12 +149,12 @@ Zr-96.06c 2.97542823E-04
 pin  in
 air   0.56134
 clad  0.61214
-water
+cool_750B
 
 pin  gt
-water  0.56134
+cool_750B  0.56134
 clad   0.61214
-water
+cool_750B
 
 % --- Burnable poison and Fuel pins ---
 % WABA Pin
@@ -155,7 +165,7 @@ void      0.35000
 Al2O3B4C  0.40386
 void      0.41783
 clad      0.48387
-water
+cool_750B
 
 % IFBA Pin
 pin i
@@ -164,31 +174,34 @@ fuel    0.392176
 ZrB2    0.393176
 helium  0.400050
 clad    0.457200
-water
+cool_750B
 
 % Fuel Pin
 pin f
 fuel    0.392176
 helium  0.400050
 clad    0.457200
-water
+cool_750B
 
 %% Group Constant Homogenization, energy groups from Hitachi data
 ene 1 1 1E-11 0.625E-6 15
-set gcu 0
+set gcu $root_universe_name
 
 % --- Few-group structure: (two groups, boundary et 0.625 eV)
 set nfg 2 0.625E-6
 
 % --- Set CMM transport correction
-set cmm 1
+set fum defaultmg 1 3 3 % - default multigroup intermediate spectrum
+                        % - 1 = cycle-wise micro-group batching
+                        % - 3 = Fundametal mode calculation
+                        % - 3 = Use cumulative migration method (CMM) diffusion coefficients
 
 % --- ADF calculation: (super-imposed surface and full symmetry)
 surf ADF sqc 0.0 0.0  10.75
-set adf 0 ADF full 
+set adf $root_universe_name ADF full 
 
 % --- Calculate poison cross sections:
-set poi 1 462.25 % = 21.5*21.5
+% set poi 1 462.25 % = 21.5*21.5 Seems to be causing a large amount of memory overhead
 
 % --- Power density, taken from cycle 1 powdens=44.554 KW/g ---
 set powdens 44.554E-3

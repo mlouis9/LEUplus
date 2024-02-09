@@ -16,10 +16,11 @@ from itertools import product, combinations
 import copy
 from string import Template
 import math
+from pathlib import Path
 
 # Template file to append material and lattice definitions to
-serpentTemplate = '../templateFile/serpentTemplateFA.txt'
-outputDir = '../database/no_pert_only_burnup'
+serpentTemplate = str(Path('../templateFile/serpentTemplateFA.txt'))
+outputDir = str(Path('../database/no_pert_only_burnup'))
 
 # Absolute path of script, to avoid creating directories in unwanted locations
 scriptsDir = os.path.dirname(os.path.abspath(sys.argv[0]))
@@ -37,7 +38,7 @@ if not os.path.isdir(outputDir):
 
 
 # Read assembly parameters
-with open(f'{scriptsDir}/assemblyParameters.yaml', 'r') as f:
+with open(str(Path(f'{scriptsDir}/assemblyParameters.yaml')), 'r') as f:
     assemblyData = yaml.safe_load(f)
 
 identifiers = assemblyData['identifiers']
@@ -202,8 +203,10 @@ for assembly in all_assembly_combinations:
     for enrichment in enrichments:
         number_waba = int(assembly['number_waba'])
         number_ifba = int(assembly['number_ifba'])
-        with open(f"{outputDir}/{fileNamingTemplate.format(number_waba, number_ifba, enrichment*100).replace('.', '-')}", 'w') as f:
-            f.write(templateLines)
+        outfileName = fileNamingTemplate.format(number_waba, number_ifba, enrichment*100).replace('.', '-')
+        with open(str(Path(f"{outputDir}/{outfileName}")), 'w') as f:
+            templateLines = Template(templateLines)
+            f.write(templateLines.substitute(root_universe_name = '0')) # Just setting root universe to '0' for now
 
             # Add fuel material
             f.write(f"% {enrichment*100:.3f}w/o Enriched Fuel\n")
@@ -238,10 +241,9 @@ runScriptTemplate = Template("""#-------------------------------
 from mpi4py import MPI
 import subprocess
 import numpy as np
+from uniqueAssemblies import assemblies, enrichments
                              
 # Get enrichments and assemblies for accessing 
-enrichments = np.array($enrichments)
-assemblies = $assemblies
 numberOfAssyRuns = len(assemblies)*len(enrichments)
 
 # Make an array of enrichment/assembly pairs so that each MPI rank may be assigned a unique run
@@ -263,6 +265,17 @@ serpentCommand = f\"sss2 {fileNamingTemplate.format(number_waba, number_ifba, en
 subprocess.run(serpentCommand, shell=True)
 """)
 
+# This is a template for storing the unique assembly data (for the generated database) that can easily be read by a python script
+# e.g. the script that processes the database and runs fuel cycle optimization
+uniqueAssembliesTemplate = Template("""import numpy as np
+enrichments = np.array($enrichments)
+assemblies = $assemblies""")
+
+uniqueAssembliesName = 'uniqueAssemblies.py'
+with open(str(Path(f'{outputDir}/{uniqueAssembliesName}')), 'w') as f:
+    uniqueAssembliesTemplate.substitute(enrichments = np.array2string(enrichments, separator=','),
+                                        assemblies = all_assembly_combinations)
+
 
 # Force numpy array to print on single line
 np.set_printoptions(linewidth=np.inf)
@@ -273,10 +286,8 @@ for assembly in all_assembly_combinations:
 
 # Now format template and write run script
 runScriptName = 'run.py'
-with open(f'{outputDir}/{runScriptName}', 'w') as f:
-    f.write(runScriptTemplate.substitute(enrichments = np.array2string(enrichments, separator=','),
-                                         assemblies = all_assembly_combinations,
-                                         coresPerAssy = coresPerAssy))
+with open(str(Path(f'{outputDir}/{runScriptName}')), 'w') as f:
+    f.write(runScriptTemplate.substitute(coresPerAssy = coresPerAssy))
 
 
 # This is a slurm submission script template for running the cases using the above run script
@@ -302,7 +313,7 @@ srun python $runScriptName
 # Now write the slurm submission script
 submissionScriptName = 'run.slurm'
 chargeCode = 'fillInYourChargeCode'
-with open(f'{outputDir}/{submissionScriptName}', 'w') as f:
+with open(str(Path(f'{outputDir}/{submissionScriptName}')), 'w') as f:
     f.write(slurmSubmissionTemplate.substitute(numNodes = numberOfNodes,
                                                tasksPerNode = tasksPerNode,
                                                cpusPerTask = coresPerAssy,
