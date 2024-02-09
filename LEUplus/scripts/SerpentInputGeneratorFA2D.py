@@ -205,8 +205,7 @@ for assembly in all_assembly_combinations:
         number_ifba = int(assembly['number_ifba'])
         outfileName = fileNamingTemplate.format(number_waba, number_ifba, enrichment*100).replace('.', '-')
         with open(str(Path(f"{outputDir}/{outfileName}")), 'w') as f:
-            templateLines = Template(templateLines)
-            f.write(templateLines.substitute(root_universe_name = '0')) # Just setting root universe to '0' for now
+            f.write(Template(templateLines).substitute(root_universe_name = '0')) # Just setting root universe to '0' for now
 
             # Add fuel material
             f.write(f"% {enrichment*100:.3f}w/o Enriched Fuel\n")
@@ -271,18 +270,17 @@ uniqueAssembliesTemplate = Template("""import numpy as np
 enrichments = np.array($enrichments)
 assemblies = $assemblies""")
 
-uniqueAssembliesName = 'uniqueAssemblies.py'
-with open(str(Path(f'{outputDir}/{uniqueAssembliesName}')), 'w') as f:
-    uniqueAssembliesTemplate.substitute(enrichments = np.array2string(enrichments, separator=','),
-                                        assemblies = all_assembly_combinations)
-
-
 # Force numpy array to print on single line
 np.set_printoptions(linewidth=np.inf)
 
 # Now pop off the assembly_pattern element of each dictionary because it is no longer needed
 for assembly in all_assembly_combinations:
     assembly.pop('assembly_pattern')
+
+uniqueAssembliesName = 'uniqueAssemblies.py'
+with open(str(Path(f'{outputDir}/{uniqueAssembliesName}')), 'w') as f:
+    f.write(uniqueAssembliesTemplate.substitute(enrichments = np.array2string(enrichments, separator=','),
+                                                assemblies = all_assembly_combinations))
 
 # Now format template and write run script
 runScriptName = 'run.py'
@@ -312,7 +310,7 @@ srun python $runScriptName
 
 # Now write the slurm submission script
 submissionScriptName = 'run.slurm'
-chargeCode = 'fillInYourChargeCode'
+chargeCode = 'gts-dkotlyar6-CODA20'
 with open(str(Path(f'{outputDir}/{submissionScriptName}')), 'w') as f:
     f.write(slurmSubmissionTemplate.substitute(numNodes = numberOfNodes,
                                                tasksPerNode = tasksPerNode,
