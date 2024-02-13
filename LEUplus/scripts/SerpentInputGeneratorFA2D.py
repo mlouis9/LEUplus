@@ -310,7 +310,8 @@ srun python $runScriptName
 
 # Now write the slurm submission script
 submissionScriptName = 'run.slurm'
-chargeCode = 'gts-dkotlyar6-CODA20'
+with open('chargeCode.txt', 'r') as f:
+    chargeCode = f.read()
 with open(str(Path(f'{outputDir}/{submissionScriptName}')), 'w') as f:
     f.write(slurmSubmissionTemplate.substitute(numNodes = numberOfNodes,
                                                tasksPerNode = tasksPerNode,
