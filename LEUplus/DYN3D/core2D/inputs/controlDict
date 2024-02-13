@@ -1,0 +1,102 @@
+set universes
+48C2 ./inputs/univ_files/univs48C2 
+48C3 ./inputs/univ_files/univs48C3
+49A1 ./inputs/univ_files/univs49A1
+49B1 ./inputs/univ_files/univs49B1
+49B2 ./inputs/univ_files/univs49B2
+49B3 ./inputs/univ_files/univs49B3
+49B4 ./inputs/univ_files/univs49B4
+49B5 ./inputs/univ_files/univs49B5
+49C1 ./inputs/univ_files/univs49C1
+49C3 ./inputs/univ_files/univs49C3
+49C5 ./inputs/univ_files/univs49C5
+49C6 ./inputs/univ_files/univs49C6
+49C7 ./inputs/univ_files/univs49C7
+50A1 ./inputs/univ_files/univs50A1
+50A2 ./inputs/univ_files/univs50A2
+50B1 ./inputs/univ_files/univs50B1
+50B2 ./inputs/univ_files/univs50B2
+50B3 ./inputs/univ_files/univs50B3
+50B4 ./inputs/univ_files/univs50B4
+50B5 ./inputs/univ_files/univs50B5
+50C1 ./inputs/univ_files/univs50C1
+50C2 ./inputs/univ_files/univs50C2
+50C4 ./inputs/univ_files/univs50C4
+XXXX ./inputs/univ_files/univsXXXX
+REFA ./inputs/univ_files/univsREFA
+
+# -----------------------------------------------------------------------------
+#                            Serpent output files
+# -----------------------------------------------------------------------------
+
+set serpent
+48C2 0
+48C3 0
+49A1 0
+49B1 0
+49B2 0
+49B3 0
+49B4 0
+49B5 0
+49C1 0
+49C3 0
+49C5 0
+49C6 0
+49C7 0
+50A1 0
+50A2 0
+50B1 0
+50B2 0
+50B3 0
+50B4 0
+50B5 0
+50C1 0
+50C2 0
+50C4 0
+XXXX 0
+REFA 0
+
+# -----------------------------------------------------------------------------
+#                            TEMPLATE FILES
+# -----------------------------------------------------------------------------
+
+set templates
+template0 ./inputs/template
+
+# -----------------------------------------------------------------------------
+#                            OUTPUT FILES
+# -----------------------------------------------------------------------------
+
+set outputs
+template0 ./dyn3d/xs/
+
+# -----------------------------------------------------------------------------
+#                           UNIVERSE-TO-FILES LINKS 
+# -----------------------------------------------------------------------------
+
+set links
+template0 48C20 48C30 49A10 49B10 49B20 49B30 49B40 49B50 49C10 49C30 49C50 49C60 49C70 50A10 50A20 50B10 50B20 50B30 50B40 50B50 50C10 50C20 50C40 XXXX0 REFA0
+
+# -----------------------------------------------------------------------------
+#                            FORMAT
+# -----------------------------------------------------------------------------
+
+set formats 8 .dat
+# state 5.5f
+attr 6.6e
+
+# -----------------------------------------------------------------------------
+#                            CHANNELS & MAP
+# -----------------------------------------------------------------------------
+
+# Just a single channel
+
+set map 0
+    S1
+  
+set channels
+S1 48C20#u54 u*36[1,1] u55
+
+
+set volumes
+S1 20.0 #10.160*36 20.0

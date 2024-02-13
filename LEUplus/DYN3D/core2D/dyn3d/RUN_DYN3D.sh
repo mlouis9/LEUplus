@@ -1,0 +1,1 @@
+DYN3DMG.exe ./core2D ./core2D

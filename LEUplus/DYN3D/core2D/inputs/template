@@ -1,0 +1,118 @@
+* Mod Dens (kg/m^3) Boron (ppm) Fuel Temp (K) Mod Temp (K)
+"vari"{numDmod=1}
+"vari"{numBoron=1}
+"vari"{numTfu=1}
+"vari"{numDmod=1}
+"vari"{numTmod=1}
+"vari"{numGroups=2}
+"vari"{idxCrod=0}
+"vari"{history="his_nom"}
+"varo"{numDmod <1d>} "varo"{numBoron <1d>} "varo"{numTfu <1d>} "varo"{numTmod <1d>}
+701.468
+1000
+900
+574
+"vari"{times=[0, 0.1,0.5,1.0,1.5,2.0,2.5,3.0,4.0,4.5,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,13.0,14.0,15.0,17.5,20.0,22.5,25.0,27.5,30.0,32.5,35.0,37.5,40.0,42.5,45.0,47.5,50.0,52.5,55.0,57.5,60.0,62.5,65.0,67.5]}
+"vari"{numTimes=len(times)}
+"vari"{idxB=-1}
+"rep"{"varo"{numTimes}
+*
+* ----------------------------------------------------------------
+"vari"{idxB=idxB+1}
+* BURNUP  "varo"{times[idxB]<3.3f>}
+* ----------------------------------------------------------------
+*
+* Transport XSEC Table
+*
+"vari"{idxE1=-1}
+"rep"{{"varo"{numGroups}
+"vari"{idxE1+=1}
+* GROUP "varo"{idxE1+1}
+"values"{cmmtranspxs, time="varo"{times[idxB] <2.1f>}  ["varo"{idxE1}]}
+"rep"}}
+*
+* Reduced absorption XSEC Table
+*
+"vari"{idxE=-1}
+"rep"{{"varo"{numGroups}
+"vari"{idxE+=1}
+* GROUP "varo"{idxE+1}
+"values"{infrabsxs, time="varo"{times[idxB] <2.1f>}  ["varo"{idxE}]}
+"rep"}}
+*
+* Nu-Fission XSEC Table
+*
+"vari"{idxE=-1}
+"rep"{{"varo"{numGroups}
+"vari"{idxE+=1}
+* GROUP "varo"{idxE+1}
+"values"{infnsf, time="varo"{times[idxB] <2.1f>}  ["varo"{idxE}]}
+"rep"}}
+*
+* Kappa-Fission XSEC Table
+*
+"vari"{idxE=-1}
+"rep"{{"varo"{numGroups}
+"vari"{idxE+=1}
+* GROUP "varo"{idxE+1}
+"vari"{idxDmod=-1}
+"values"{fissjoule, time="varo"{times[idxB] <2.1f>}  ["varo"{idxE}]}
+"rep"}}
+*
+* Scattering XSEC Table
+*
+"vari"{indices=[(0,0),(0,1),(1,0),(1,1)]}
+"vari"{idxE=-1}
+"rep"{{"varo"{numGroups**2}
+"vari"{idxE+=1}
+* GROUP "varo"{indices[idxE][0]+1} -> "varo"{indices[idxE][1]+1}
+"values"{infs0, time="varo"{times[idxB] <2.1f>}  ["varo"{indices[idxE][0]},"varo"{indices[idxE][1]}]}
+"rep"}}
+*
+* ADF Table XSEC Table
+*
+"vari"{idxE1=-1}
+"rep"{{"varo"{numGroups}
+"vari"{idxE1+=1}
+* GROUP "varo"{idxE1+1}
+1.000000e+00
+"rep"}}
+*
+* Axial ADF
+* bottom
+"vari"{idxE1=-1}
+"rep"{{"varo"{numGroups}
+"vari"{idxE1+=1}
+* GROUP "varo"{idxE1+1}
+1.000000e+00
+"rep"}}
+* top
+"vari"{idxE1=-1}
+"rep"{{"varo"{numGroups}
+"vari"{idxE1+=1}
+* GROUP "varo"{idxE1+1}
+1.000000e+00
+"rep"}}
+*
+* Fission Spectrum
+*
+* GROUP 1 2
+"values"{infchit, time="varo"{times[idxB] <2.1f>}  [0,1]}
+*
+* Inverse Velocity
+*
+* GROUP 1 2
+"values"{infInvv, time="varo"{times[idxB] <2.1f>}  [0,1]}
+*
+* Delay Neutron Decay Constant (Lambda)
+*
+* GROUP 1 2 3 4 5 6
+"values"{lambda, time="varo"{times[idxB] <2.1f>}  [1,2,3,4,5,6] <1.5e>6}
+*
+* Delay Neutron Fraction (Beta)
+*
+* GROUP 1 2 3 4 5 6
+"values"{betaeff, time="varo"{times[idxB] <2.1f>}  [1,2,3,4,5,6] <1.5e>6}
+"rep"}
+*
+End
