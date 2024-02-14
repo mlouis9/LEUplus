@@ -1,6 +1,0 @@
-*_res.m filter=lfs diff=lfs merge=lfs -text
-*.out filter=lfs diff=lfs merge=lfs -text
-*.dep filter=lfs diff=lfs merge=lfs -text
-*_red.dat filter=lfs diff=lfs merge=lfs -text
-*_lst.dat filter=lfs diff=lfs merge=lfs -text
-*_res.dat filter=lfs diff=lfs merge=lfs -text
