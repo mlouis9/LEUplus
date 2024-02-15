@@ -1,2 +1,2 @@
-# LEUplus
-Fuel Cycle Analysis of an LEU+
+# FuelCycleAnalyses
+Fuel cycle analysis of LWRs and advanced systems

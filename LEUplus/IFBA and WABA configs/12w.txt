@@ -1,0 +1,21 @@
+% --- 12 WABA ---
+
+lat 1 1 0.0 0.0 17 17 1.25984
+
+f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f 
+f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f 
+f  f  f  f  f  wb f  f  gt f  f  wb f  f  f  f  f 
+f  f  f  gt f  f  f  f  f  f  f  f  f  gt f  f  f 
+f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f 
+f  f  wb f  f  gt f  f  wb f  f  gt f  f  wb f  f 
+f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f 
+f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f 
+f  f  gt f  f  wb f  f  in f  f  wb f  f  gt f  f 
+f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f 
+f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f 
+f  f  wb f  f  gt f  f  wb f  f  gt f  f  wb f  f 
+f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f 
+f  f  f  gt f  f  f  f  f  f  f  f  f  gt f  f  f 
+f  f  f  f  f  wb f  f  gt f  f  wb f  f  f  f  f 
+f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f 
+f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f  f 

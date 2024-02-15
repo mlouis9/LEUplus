@@ -1,0 +1,147 @@
+$NEACRP BENCHMARK C1                                    
+$   360 DEGREE
+$ DRIVER TAKEN INTO ACCOUNT APPROXIMATELY
+$  ICON IWQS IREWIN TOTIM       DTREST 
+    -1    22    1    18000.0     3.0
+$  ISTART
+    1
+PWR PROJECT BENCHMARK
+$  IBKTYP
+    2
+CONTROL OF CALCULATION
+$ ITIM IOINP IH1  IH2  IH3  IH4  IH5
+   1    1    0    0    0    0    0   
+DIMENSIONS OF ARRAYS
+$ISYM NJMAX NIMAX NCAS NZ NOBOU NOSYMS NOMAS NOBT
+  360   17   17   257   1    68    0    25   2
+$ ndiv
+   1 
+NEUTRON ENERGY GROUPS
+$   NG NOMAXDSC NOMAXUSC NGUPSC
+     2      1       1      0   
+CONTROL OF ITERATION                                                 
+$  EPSBES    EPSK       EPSF              
+   .000001 .0000001   .000002                                          
+$ EKEFF
+  1.0      
+$ ITOUMA ITINMA ITSCH
+   500     3      5
+$ IOPT
+    0   
+IMPROVED LEAKAGE    
+TOTAL POWER                                                    
+$   TOTPOW [MW]     
+    4500
+$IBOR INDXE INDSM  KRIPAR ITKRIM (#flux-TH iterations)   
+  1    0     0       1    100                                           
+$   EPSKRI   EPSTF     EPSRH     THETA (static N-TH criterias)
+  .000001   .0001      .0002    0.5                    
+$   BW      EKEFF0   CBLIM
+  .00004212  1.0    -0.1  
+$ ICSTYP
+    1                 
+$ NOFUEL 
+   25
+$ IBURN
+    1 
+$ FUEL ASSEMBLY TYPES
+1*1
+1*2
+1*3
+1*4
+1*5
+1*6
+1*7
+1*8
+1*9
+1*10
+1*11
+1*12
+1*13
+1*14
+1*15
+1*16
+1*17
+1*18
+1*19
+1*20
+1*21
+1*22
+1*23
+1*24
+1*25
+MATERIAL MAP
+   -8    8
+ -4 -6 -7 -7 -8 -8 -8 -8 -8 -8 -8 -8 -8 -7 -7 -6 -4                             
+  4  6  7  7  8  8  8  8  8  8  8  8  8  7  7  6  4      
+$ NSHUFF 
+    0
+$IMAT(I,J)
+   	   	   	   	 25	 25	 25	 25	 25	 25	 25	 25	 25	   	   	   	   
+   	   	 25	 25	 25	  3	  3	  3	  1	  3	  3	  2	 25	 25	 25	   	   
+   	 25	 25	  3	  7	 22	 17	 23	 16	 23	 17	 22	  2	  3	 25	 25	   
+   	 25	  3	 21	 19	 15	  9	 15	  4	 15	  9	 15	 19	 21	  3	 25	   
+ 25	 25	  2	 19	 10	  6	 18	 13	  4	 12	 18	  7	 10	 19	  7	 25	 25
+ 25	  2	 22	 15	  7	 14	  5	 20	 11	 20	  5	 14	  6	 15	 22	  3	 25
+ 25	  3	 17	  9	 18	  5	 15	  8	 15	  8	 15	  5	 18	  9	 17	  3	 25
+ 25	  3	 23	 15	 12	 20	  8	 20	 11	 20	  8	 20	 13	 15	 23	  3	 25
+ 25	  1	 16	  4	  4	 11	 15	 11	 24	 11	 15	 11	  4	  4	 16	  1	 25
+ 25	  3	 23	 15	 13	 20	  8	 20	 11	 20	  8	 20	 12	 15	 23	  3	 25
+ 25	  3	 17	  9	 18	  5	 15	  8	 15	  8	 15	  5	 18	  9	 17	  3	 25
+ 25	  3	 22	 15	  6	 14	  5	 20	 11	 20	  5	 14	  7	 15	 22	  2	 25
+ 25	 25	  7	 19	 10	  7	 18	 12	  4	 13	 18	  6	 10	 19	  2	 25	 25
+   	 25	  3	 21	 19	 15	  9	 15	  4	 15	  9	 15	 19	 21	  3	 25	   
+   	 25	 25	  3	  2	 22	 17	 23	 16	 23	 17	 22	  7	  3	 25	 25	   
+   	   	 25	 25	 25	  2	  3	  3	  1	  3	  3	  3	 25	 25	 25	   	   
+   	   	   	   	 25	 25	 25	 25	 25	 25	 25	 25	 25	   	   	   	   			
+GEOMETRICAL PARAMETERS
+$ AX
+       21.500   21.500    21.500    21.500    21.500    21.500
+       21.500   21.500    21.500    21.500    21.500    21.500
+       21.500   21.500    21.500    21.500    21.500
+$ AY
+       21.500   21.500    21.500    21.500    21.500    21.500
+       21.500   21.500    21.500    21.500    21.500    21.500
+       21.500   21.500    21.500    21.500    21.500
+$ AZ
+       6.000    
+$ IZBOT IZTOP      
+    1   1
+CONTROL RODS
+$ NOBANK NOW
+    0    0
+ASSEMBLY DISCONTINUITY FACTORS
+CURRENT COUPLING RELAXATION 
+$ THETA_CN
+     0.7  
+BOUNDARY RELATIONS
+         1.0 1.0
+         0.0 0.0
+$ INDC                                                 
+   -1 
+$ IREFC                                                                                                                                               
+ 68*2                                                                                        
+$       
+$ IREFU
+ 257*1 
+$ IREFO
+ 257*1
+$ FEEDBACK ADJUSTING COEFFICIENTS
+   0.0  0.0  0.0  0.0
+$NHYCHA
+    0
+$ 
+END OF DATA FOR STATIONARY CALCULATION 
+$   
+$HEAVY METAL MASS
+$$  BRNINT                                                                       
+$    100. 
+$$  BNTIME                                                                       
+$     0. 
+$$ UOMASS  
+$    389.10505
+$$ RPTIME    TOTPOW     CTEMP    CFLOW  MOVGR
+$  50.     359.1180772  1600.0   100.00  0
+$  100.    359.1180772  1600.0   100.00  0
+$-10                                                                                                                                                                 
+FINE

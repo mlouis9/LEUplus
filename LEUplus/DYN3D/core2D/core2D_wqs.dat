@@ -1,0 +1,37 @@
+# Path PWR Oxide Fuel Core
+XSEC\
+# NOGROUP  NODN
+    2       7 
+***************************************************************
+  ENERGY LIMITS
+  2.0000E+07  6.1500E-01  1.0000E-04
+***************************************************************
+# NXSCORE NXSREFL
+     25      0
+#
+#  Name                                 Burnup points
+48C2.dat                                    42
+48C3.dat                                    42
+49A1.dat                                    42
+49B1.dat                                    42
+49B2.dat                                    42
+49B3.dat                                    42
+49B4.dat                                    42
+49B5.dat                                    42
+49C1.dat                                    42
+49C3.dat                                    42
+49C5.dat                                    42
+49C6.dat                                    42
+49C7.dat                                    42
+50A1.dat                                    42
+50A2.dat                                    42
+50B1.dat                                    42
+50B2.dat                                    42
+50B3.dat                                    42
+50B4.dat                                    42
+50B5.dat                                    42
+50C1.dat                                    42
+50C2.dat                                    42
+50C4.dat                                    42
+XXXX.dat                                    42
+REFA.dat                                    1
