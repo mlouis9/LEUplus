@@ -2,6 +2,7 @@
 *_lst.dat
 *_red.dat
 *_res.dat
+*.d3d
 
 # Ignore chargeCode.txt, which contains sensitive information (i.e. charge code)
 chargeCode.txt
