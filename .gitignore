@@ -1,3 +1,8 @@
+# Ignore DYN3D binary/lst results, these can always be regenerated pretty easily anyways
+*_lst.dat
+*_red.dat
+*_res.dat
+
 # Ignore chargeCode.txt, which contains sensitive information (i.e. charge code)
 chargeCode.txt
 
