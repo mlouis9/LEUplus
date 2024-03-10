@@ -9,10 +9,16 @@ xs
 
 # Ignore all of the Serpent input scripts and run scripts in each of the database directories (these can be generated on the fly
 # from the input generation scripts anyways)
-!LEUplus/database/**/*_res.m
-!LEUplus/database/**/README.md
-!LEUplus/database/**/uniqueAssemblies.py
-LEUplus/database/**?
+LEUplus/database/*
+!LEUplus/database/*_res.m
+!LEUplus/database/README.md
+!LEUplus/database/uniqueAssemblies.py
+!LEUplus/database/*/
+
+LEUplus/database/*/*
+!LEUplus/database/*/*_res.m
+!LEUplus/database/*/README.md
+!LEUplus/database/*/uniqueAssemblies.py
 
 # Ignore chargeCode.txt, which contains sensitive information (i.e. charge code)
 chargeCode.txt
