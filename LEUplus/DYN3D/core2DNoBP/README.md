@@ -1,3 +1,12 @@
+**Table of Contents**
+---
+- [2D Core With No Burnable Poisons](#2d-core-with-no-burnable-poisons)
+- [Files and Directory Structure](#files-and-directory-structure)
+  - [DYN3D](#dyn3d)
+  - [Serpent](#serpent)
+  - [Inputs](#inputs)
+---
+
 # 2D Core With No Burnable Poisons
 
 This directory contains an example of a full-core calculation with DYN3D where the following assumptions have been made

@@ -1,5 +1,11 @@
 import os
 
+# -------------------------------------------------------------------------------
+# This is a script for automatically updating the table of contents of the main
+# README file in the LEUplus directory, please don't update this unless changing
+# the TOC is your intention.
+# -------------------------------------------------------------------------------
+
 def generate_toc(directory, level=0):
     toc = ""
     for item in os.listdir(directory):
