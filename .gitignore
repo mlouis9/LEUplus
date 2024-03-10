@@ -4,8 +4,30 @@
 *_res.dat
 *.d3d
 
+# Ignore intermediate files used for DYN3D calculation initialization that remain if the calculation fails
+*__pk.dat
+*_brn.dat
+*_eiw.dat
+*_f50.dat
+*_f51.dat
+*_f52.dat
+*_int.dat
+*_mix.dat
+*_nbr.dat
+*_nuc.dat
+*_rec.dat
+*_rs1.dat
+*_rs2.dat
+*_sam.dat
+*_sou.dat
+*_tmp.dat
+*_trn.dat
+*_trt.dat
+*_wei.dat
+*_xen.dat
+
 # Ignore the contents of xs directories, as these are generated from the database anyways
-xs/*
+**/xs/*
 
 # Ignore all of the Serpent input scripts and run scripts in each of the database directories (these can be generated on the fly
 # from the input generation scripts anyways)
