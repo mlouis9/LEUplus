@@ -4,8 +4,8 @@
 *_res.dat
 *.d3d
 
-# Ignore xs directories, as these are generated from the database anyways
-xs
+# Ignore the contents of xs directories, as these are generated from the database anyways
+xs/*
 
 # Ignore all of the Serpent input scripts and run scripts in each of the database directories (these can be generated on the fly
 # from the input generation scripts anyways)
