@@ -297,7 +297,7 @@ slurmSubmissionTemplate = Template("""#!/bin/bash
 #SBATCH -N$numNodes --ntasks-per-node=$tasksPerNode                 # Number of nodes and cores per node
 #SBATCH --cpus-per-task=$cpusPerTask
 #SBATCH --time=7:30:00                          # Walltime = 7.5h
-#SBATCH -qembers                                # QOS Name (embers / inferno)
+#SBATCH -inferno                                # QOS Name (embers / inferno)
 #SBATCH -oReport-%j.out                         # Combined output and error messages file
 
 echo $$SLURM_SUBMIT_DIR
@@ -310,8 +310,16 @@ srun python $runScriptName
 
 # Now write the slurm submission script
 submissionScriptName = 'run.slurm'
-with open('chargeCode.txt', 'r') as f:
-    chargeCode = f.read()
+try:
+    with open('chargeCode.txt', 'r') as f:
+        chargeCode = f.read()
+except FileNotFoundError:
+    raise FileNotFoundError(
+        """
+        It looks like you forgot to add a chargeCode.txt file adjacent to this script. A charge code is necessary for generating
+        a valid slurm submission script
+        """
+    )
 with open(str(Path(f'{outputDir}/{submissionScriptName}')), 'w') as f:
     f.write(slurmSubmissionTemplate.substitute(numNodes = numberOfNodes,
                                                tasksPerNode = tasksPerNode,

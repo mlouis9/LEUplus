@@ -1,5 +1,0 @@
-BatchID       wt%-U235      #FA       #IFBA       #WABA       kgU
-Fuel          4.2           4         80          0           422.676     
-
-
-                                                                                                                                                                                                                                                        

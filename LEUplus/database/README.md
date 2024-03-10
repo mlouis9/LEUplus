@@ -1,0 +1,4 @@
+# Databases
+This directory contains all of the relevant cross section databases for different assembly designs (discussed in [the wiki](https://github.gatech.edu/dkotlyar6/LEUplus/wiki/Modelling-and-Assumptions#The-Computational-Sequence)) with varying levels of complexity. Currently, there are the following databases:
+* `no_pert_only_burnup`: This database includes assembly designs for varying enrichments and burnable poison loadings, which loadings are considered in this database, and how they were generated is discussed [here](../scripts/README.md). Notably, these assembly models were constructed in 2D, and do not currently account for thermal hydraulic perturbations or calculate equivalence factors
+* `only_enrichments`: Is a sumset of the `no_pert_only_burnup`

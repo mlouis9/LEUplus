@@ -23,5 +23,13 @@ The DYN3D folder contains the the following DYN3D input files
 The rest of the files are binary/text result files that are automatically read with xs-interface.
 
 ## Serpent
+The serpent directory is a symbolic link to the database containing only enrichment variations, and contains all of the serpent _res.m files needed for generating cross sections
 
 ## Inputs
+This directory contains the input files for  xs-interface.
+* `template`: The file which describes the template for xs data. This is consistent with DYN3D, and the templated xs files can be found in the `dyn3d/xs` directory.
+* `controlDictTemplate`: This file is a template for the control dict. This is templated so that the core layout can be changed on the fly by the run script by just templating the volume mapping and channel mapping.
+    * `controlDict` is the templated output file that is used by xs-interface
+* `univ_files`: Is a directory containing the universe files for each unique assembly, created by templating `univs_template`.
+    * Doing this again allows chaning which serpent `_res.m` files correspond to which universes.
+    * Note it's currently necessary to create a separate universe file for each unique assembly, because only one output file can be specified in the universe file.

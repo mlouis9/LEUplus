@@ -1,0 +1,2 @@
+# DYN3D
+This folder contains the DYN3D input setups for each of the phases of the computational sequence described in [the wiki](https://github.gatech.edu/dkotlyar6/LEUplus/wiki/Modelling-and-Assumptions#The-Computational-Sequence).
