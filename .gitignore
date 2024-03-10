@@ -25,6 +25,7 @@
 *_trt.dat
 *_wei.dat
 *_xen.dat
+*_par.dat
 
 # Ignore the contents of xs directories, as these are generated from the database anyways
 **/xs/*
