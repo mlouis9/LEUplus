@@ -4,6 +4,9 @@
 *_res.dat
 *.d3d
 
+# Ignore xs directories, as these are generated from the database anyways
+xs
+
 # Ignore chargeCode.txt, which contains sensitive information (i.e. charge code)
 chargeCode.txt
 
