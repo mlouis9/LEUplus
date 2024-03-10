@@ -12,7 +12,7 @@ xs
 !LEUplus/database/**/*_res.m
 !LEUplus/database/**/README.md
 !LEUplus/database/**/uniqueAssemblies.py
-LEUplus/database/**
+LEUplus/database/**?
 
 # Ignore chargeCode.txt, which contains sensitive information (i.e. charge code)
 chargeCode.txt
