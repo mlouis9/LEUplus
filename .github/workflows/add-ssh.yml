@@ -1,0 +1,22 @@
+name: Add SSH Key to Server
+
+on:
+  workflow_dispatch:
+    inputs:
+      sshPublicKey:
+        description: 'User SSH public key'
+        required: true
+
+jobs:
+  add-key:
+    name: Add SSH Public Key to Server
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add SSH public key to server
+        run: |
+          # SSH command to add the public key to the authorized_keys
+          # You need to replace 'user', 'server_ip', and '/path/to/authorized_keys' with actual values.
+          # It is also assumed that the private key used for server access is stored as a GitHub secret.
+          ssh -o StrictHostKeyChecking=no -i ${{ secrets.SERVER_SSH_PRIVATE_KEY }} mlouis9@128.61.144.105 "echo '${{ github.event.inputs.sshPublicKey }}' >> ~/.ssh/authorized_keys"
+        env:
+          SERVER_SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_PRIVATE_KEY }}
